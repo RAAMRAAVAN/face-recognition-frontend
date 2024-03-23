@@ -18,7 +18,7 @@ export const Home = () => {
   };
   let getPersons = async () => {
     try {
-      let response = await axios.get("http://127.0.0.1:5000/get_all_persons");
+      let response = await axios.get("http://125.23.58.83:443/get_all_persons");
       let personData = [];
       if (response.data.status === true)
         response.data.data.map((value) => {

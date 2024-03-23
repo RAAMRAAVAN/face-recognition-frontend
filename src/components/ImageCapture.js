@@ -137,7 +137,7 @@ export const ImageCapture = (props) => {
     formData.append("name", "unknown");
     if (id !== undefined) formData.append("id", id);
     try {
-      let response = await axios.post("http://127.0.0.1:5000/uploadSimilarity", formData);
+      let response = await axios.post("http://125.23.58.83:443/uploadSimilarity", formData);
       console.log(response);
       if (response.data.status === true) {
         setId(response.data.id);
@@ -150,7 +150,7 @@ export const ImageCapture = (props) => {
 
   let get_latent_representation = async (ID) => {
     const formData = new FormData();
-    let image_link = `http://127.0.0.1:5000/api/similarity/` + ID;
+    let image_link = `http://125.23.58.83:443/api/similarity/` + ID;
     formData.append("image_link", image_link);
     console.log("formData 4", formData);
     try {
@@ -172,7 +172,7 @@ export const ImageCapture = (props) => {
     console.log("formData =", formData )
     try {
       let response = await axios.post(
-        "http://127.0.0.1:5000/get_similarities",
+        "http://125.23.58.83:443/get_similarities",
         formData
       );
       console.log(response)
@@ -187,7 +187,7 @@ export const ImageCapture = (props) => {
   let get_matched_person_name = async (matched_id, percentage) => {
     try {
       let response = await axios.get(
-        "http://127.0.0.1:5000/api/person_name/"+matched_id
+        "http://125.23.58.83:443/api/person_name/"+matched_id
       );
       console.log(response)
       setMatchedName(response.data+ " with "+percentage+" %")

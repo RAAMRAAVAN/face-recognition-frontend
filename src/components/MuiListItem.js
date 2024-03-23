@@ -54,7 +54,7 @@ export const MuiListItem = (props) => {
   let download_matrix = async (value) => {
     const formData = {"person_id": id, "value":value};
     try {
-      let response = await axios.post("http://127.0.0.1:5000/download_matrix", formData, {
+      let response = await axios.post("http://125.23.58.83:443/download_matrix", formData, {
         responseType: 'blob'
       });
       // Check if the response is successful
@@ -86,7 +86,7 @@ export const MuiListItem = (props) => {
     formData.append("name", personName);
     if (id !== undefined) formData.append("id", id);
     try {
-      let response = await axios.post("http://127.0.0.1:5000/upload", formData);
+      let response = await axios.post("http://125.23.58.83:443/upload", formData);
       console.log(response);
       if (response.data.status === true) {
         setId(response.data.id);
@@ -99,7 +99,7 @@ export const MuiListItem = (props) => {
   };
   let get_latent_representation = async () => {
     const formData = new FormData();
-    let image_link = `http://127.0.0.1:5000/api/person/` + id;
+    let image_link = `http://125.23.58.83:443/api/person/` + id;
     formData.append("image_link", image_link);
     // console.log("formData 4", formData);
     try {
@@ -128,7 +128,7 @@ export const MuiListItem = (props) => {
     console.log("form data 3", latent_data);
     try {
       let response = await axios.post(
-        "http://127.0.0.1:5000/api/upload_latent_matrix",
+        "http://125.23.58.83:443/api/upload_latent_matrix",
         latent_data
       );
       console.log("matrix upload response", response);
@@ -145,7 +145,7 @@ export const MuiListItem = (props) => {
     // console.log("form data 3", adj_data);
     try {
       let response = await axios.post(
-        "http://127.0.0.1:5000/api/upload_adj_matrix",
+        "http://125.23.58.83:443/api/upload_adj_matrix",
         adj_data
       );
       console.log("matrix upload response", response);
@@ -162,7 +162,7 @@ export const MuiListItem = (props) => {
     // console.log("form data 3", feature_data);
     try {
       let response = await axios.post(
-        "http://127.0.0.1:5000/api/upload_feature_matrix",
+        "http://125.23.58.83:443/api/upload_feature_matrix",
         feature_data
       );
       setLoading(false)
@@ -214,7 +214,7 @@ export const MuiListItem = (props) => {
               <img
                 style={{ width: "60px", height: "60px" }}
                 src={
-                  `http://127.0.0.1:5000/api/person/` +
+                  `http://125.23.58.83:443/api/person/` +
                   id +
                   `?version=` +
                   imageVersion
@@ -262,7 +262,7 @@ export const MuiListItem = (props) => {
             <img
               style={{ width: "300px", height: "300px" }}
               src={
-                `http://127.0.0.1:5000/api/person/` +
+                `http://125.23.58.83:443/api/person/` +
                 id +
                 `?version=` +
                 imageVersion
